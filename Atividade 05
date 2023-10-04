@@ -1,0 +1,215 @@
+1 - using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número: ");
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Console.WriteLine("Os números digitados são:");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine(numeros[i]);
+        }
+
+        Console.ReadKey();
+    }
+}
+
+2 - 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] numeros = new double[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número real: ");
+            numeros[i] = Convert.ToDouble(Console.ReadLine());
+        }
+
+        Console.WriteLine("Os números em ordem inversa são:");
+        for (int i = 9; i >= 0; i--)
+        {
+            Console.WriteLine(numeros[i]);
+        }
+
+        Console.ReadKey();
+    }
+}
+
+3 - 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] notas = new double[4]; 
+
+        for (int i = 0; i < 4; i++)
+        {
+            Console.Write($"Digite a {i + 1}ª nota: ");
+            notas[i] = Convert.ToDouble(Console.ReadLine());
+        }
+
+        double soma = 0;
+        foreach (double nota in notas)
+        {
+            soma += nota;
+        }
+        double media = soma / 4;
+
+        Console.WriteLine("As notas digitadas são:");
+        for (int i = 0; i < 4; i++)
+        {
+            Console.WriteLine($"Nota {i + 1}: {notas[i]}");
+        }
+        Console.WriteLine($"Média das notas: {media}");
+
+        Console.ReadKey();
+    }
+}
+
+4 - 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        char[] caracteres = new char[10];
+        int totalConsoantes = 0;
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o {i + 1}º caractere: ");
+            caracteres[i] = Console.ReadKey().KeyChar;
+            Console.WriteLine(); 
+        }
+
+        Console.WriteLine("Consoantes digitadas:");
+        for (int i = 0; i < 10; i++)
+        {
+            char caractere = caracteres[i];
+            if (Char.IsLetter(caractere) && !IsVowel(caractere))
+            {
+                Console.WriteLine(caractere);
+                totalConsoantes++;
+            }
+        }
+
+        Console.WriteLine($"Total de consoantes: {totalConsoantes}");
+
+        Console.ReadKey();
+    }
+
+    static bool IsVowel(char c)
+    {
+        char[] vogais = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+        return Array.IndexOf(vogais, c) != -1;
+    }
+}
+
+5 - 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[20];
+        int[] pares = new int[20];
+        int[] impares = new int[20];
+
+        for (int i = 0; i < 20; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número inteiro: ");
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+
+            if (numeros[i] % 2 == 0)
+            {
+                pares[i] = numeros[i];
+            }
+            else
+            {
+                impares[i] = numeros[i];
+            }
+        }
+
+        Console.WriteLine("\nNúmeros digitados:");
+        ImprimirVetor(numeros);
+
+        Console.WriteLine("\nNúmeros pares:");
+        ImprimirVetor(pares);
+
+        Console.WriteLine("\nNúmeros ímpares:");
+        ImprimirVetor(impares);
+
+        Console.ReadKey();
+    }
+
+    static void ImprimirVetor(int[] vetor)
+    {
+        foreach (int numero in vetor)
+        {
+            if (numero != 0)
+            {
+                Console.WriteLine(numero);
+            }
+        }
+    }
+}
+
+6 - 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int numAlunos = 10;
+        double[] medias = new double[numAlunos];
+
+        for (int i = 0; i < numAlunos; i++)
+        {
+            Console.WriteLine($"Aluno {i + 1}:");
+            double somaNotas = 0;
+
+            for (int j = 0; j < 4; j++)
+            {
+                Console.Write($"Digite a {j + 1}ª nota: ");
+                double nota = Convert.ToDouble(Console.ReadLine());
+                somaNotas += nota;
+            }
+
+            medias[i] = somaNotas / 4;
+        }
+
+        int alunosAprovados = 0;
+
+        Console.WriteLine("\nMédias dos Alunos:");
+        for (int i = 0; i < numAlunos; i++)
+        {
+            Console.WriteLine($"Aluno {i + 1}: {medias[i]}");
+
+            if (medias[i] >= 7.0)
+            {
+                alunosAprovados++;
+            }
+        }
+
+        Console.WriteLine($"\nNúmero de alunos com média maior ou igual a 7.0: {alunosAprovados}");
+
+        Console.ReadKey();
+    }
+}
